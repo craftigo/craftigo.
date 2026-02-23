@@ -1,0 +1,81 @@
+<!-- copy index.html and replace headings/labels with Malayalam translations -->
+<!doctype html>
+<html lang="ml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Designify ഓർഡർ — Craftigo</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <h1>Designify സേവന ഓർഡർ</h1>
+    <div class="lang">
+      <a href="index.html">EN</a> |
+      <a href="index-ml.html">ML</a> |
+      <a href="index-hi.html">HI</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- services same markup; translate label names -->
+    <section class="services">
+      <div class="service" data-id="posters" data-price="140">
+        <label><input type="checkbox" class="sel"> പോസ്റ്ററുകൾ</label>
+        <div class="price">₹140 <span class="old">₹170</span></div>
+        <div class="qty">
+          <button class="dec">−</button>
+          <input class="qty-input" type="number" value="1" min="1">
+          <button class="inc">+</button>
+        </div>
+      </div>
+      <!-- other services similarly translated -->
+      <!-- ... keep remaining code same as index.html but translated labels -->
+    </section>
+
+    <aside class="summary">
+      <h2>ഓർഡർ സംഗ്രഹം</h2>
+      <div id="items"></div>
+      <hr>
+      <div class="subtotal">മൊത്തം: <strong id="subtotal">₹0</strong></div>
+
+      <label for="name">നിന്റെ പേര്</label>
+      <input id="buyerName" placeholder="പൂര്‍ണ്ണ പേര്">
+
+      <label for="email">ഇമെയിൽ</label>
+      <input id="buyerEmail" placeholder="you@example.com">
+
+      <button id="buyNow" class="cta">Buy Now</button>
+    </aside>
+  </main>
+
+  <div id="payModal" class="modal hidden">
+    <div class="modal-inner">
+      <h3>പണമടയ്‌ക്കുന്ന വിധം തിരഞ്ഞെടുക്കുക</h3>
+      <div class="pay-options">
+        <label><input type="radio" name="pay" value="upi" checked> UPI</label>
+        <label><input type="radio" name="pay" value="card"> കാർഡ്</label>
+        <label><input type="radio" name="pay" value="netbank"> നെറ്റ് ബാങ്കിങ്</label>
+      </div>
+
+      <div id="upiBlock" class="pay-block">
+        <p>UPI ഡെമോ: മൊബൈൽ UPI ആപ്പ് തുറക്കും.</p>
+        <label>UPI ID: <input id="upiId" value="demo-upi@upi"></label>
+        <button id="payUpi" class="cta">UPI-ൽ പേയ്‌ ചെയ്യുക</button>
+      </div>
+
+      <div id="otherBlock" class="pay-block hidden">
+        <p>Demo payment gateway. ഇന്‍ടഗ്രേറ്റ് ചെയ്യാൻ Razorpay/PAYU ചേർക്കുക.</p>
+        <button id="payOther" class="cta">Proceed (Demo)</button>
+      </div>
+
+      <button id="modalClose" class="ghost">റദ്ദാക്കുക</button>
+    </div>
+  </div>
+
+  <script src="firebase.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
